@@ -1,5 +1,6 @@
-# es6-framework
+# es6-framework-aurelia
 
 ## Introduction
+This framework helps you get started with aurelia
 
 ## Getting started
