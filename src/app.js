@@ -1,8 +1,4 @@
 export class App {
-  constructor() {
-    this.message = "Hello World";
-  }
-  
   configureRouter(config, router) {
     config.title = 'ES6 Framework Aurelia';
     config.map([
