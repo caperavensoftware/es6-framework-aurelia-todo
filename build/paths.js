@@ -11,6 +11,9 @@ module.exports = {
     notAppFile: '!app/**/app.js', 
     stylesFiles: 'styles/**/*.css',
     sourceFiles: 'src/**/*.js',
+    sourceTemplates: 'src/**/*.html',
+    sourceSass: 'src/**/*.scss',
+    sourceStyles: 'src/**/*.css',
     sassFiles: 'sass/**/*.scss',
     jspmFiles: 'jspm_packages/**/*.*'
 };

@@ -1,23 +1,14 @@
-import {Calculator} from './calculator';
+export class App {
+  constructor() {
+    this.message = "Hello World";
+  }
+  
+  configureRouter(config, router) {
+    config.title = 'ES6 Framework Aurelia';
+    config.map([
+      {route: ['', 'welcome'], name: 'welcome',      moduleId: 'welcome/welcome',      nav: true, title: 'Welcome'},
+    ]);
 
-class Application {
-    addElement(value) {
-        let element = window.document.createElement('div');
-        element.innerText = value;
-        window.document.body.appendChild(element);
-    }
-        
-    run() {
-        let calculator = new Calculator();
-        let addresult = calculator.add(1,2);
-        this.addElement(addresult);      
-        
-        let result = calculator.multiply(2, 3);  
-        this.addElement(result);      
-    }
+    this.router = router;
+  }
 }
-
-let app = new Application();
-app.run();
-
-
