@@ -34,17 +34,17 @@ describe('Main Tests', function() {
     it ('configure', function() {
         let aureliaMock = new AureliaMock();
         
-        sinon.spy(aureliaMock.use, 'use.standardConfiguration');
+        sinon.spy(aureliaMock.use, 'standardConfiguration');
         sinon.spy(aureliaMock.use, 'developmentLogging');
         sinon.spy(aureliaMock, 'start');
         sinon.spy(aureliaMock, 'setRoot');
         
-        configure(aureliaMock);
-        
-        expect(aureliaMock.use).to.be.not.null;
-        expect(aureliaMock.standardConfiguration.calledOnce).to.be.true;
-        expect(aureliaMock.developmentLogging.calledOnce).to.be.true;
-        expect(aureliaMock.start.calledOnce).to.be.true;
-        expect(aureliaMock.setRoot.calledOnce).to.be.true;
+        configure(aureliaMock).then(() => {
+            expect(aureliaMock.use).to.be.not.null;
+            expect(aureliaMock.use.standardConfiguration.calledOnce).to.be.true;
+            expect(aureliaMock.use.developmentLogging.calledOnce).to.be.true;
+            expect(aureliaMock.start.calledOnce).to.be.true;
+            expect(aureliaMock.setRoot.calledOnce).to.be.true;            
+        });        
     });
 });
