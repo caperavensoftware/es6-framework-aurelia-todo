@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-# es6-framework-aurelia
-=======
-# es6-framework
->>>>>>> framework/master
+# es6-framework-aurelia-todo
+
+## Demo application using the es6-framework-aurelia
