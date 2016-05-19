@@ -1,5 +1,12 @@
 search-input {
-    input {
-        border-style: dotted;
+    display: inline-block;
+    width: 25%;
+    background: red;
+    padding: 0.2em 0.6em 0.2em 5em;
+    border-radius: 1em;
+        
+    input, input:focus {
+        border-style: none;
+        width: 100%;
     }
 }
