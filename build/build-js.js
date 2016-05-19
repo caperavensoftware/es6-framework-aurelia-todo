@@ -20,7 +20,7 @@ gulp.task('build-js', sync(['clean-app', 'copy-app-html']), function() {
     return gulp.src(paths.sourceFiles)
      .pipe(sourcemaps.init())
      .pipe(babel(assign({}, compilerOptions.system())))
-    .pipe(sourcemaps.write({includeContent: false, sourceRoot: '/src'}))
-    .pipe(gulp.dest(paths.destPath));
+     .pipe(sourcemaps.write({includeContent: false, sourceRoot: '/src'}))
+     .pipe(gulp.dest(paths.destPath));
 });
 

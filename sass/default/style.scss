@@ -9,3 +9,13 @@ body {
   color: $primary-color;
   background-color: $background-color;
 }
+
+header {
+  background: green;
+  height: 4em;
+  text-align: center;
+  
+  search-input {
+    margin-top: 0.5em;
+  }
+}

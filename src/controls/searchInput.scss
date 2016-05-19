@@ -1,12 +1,32 @@
 search-input {
     display: inline-block;
-    width: 25%;
-    background: red;
-    padding: 0.2em 0.6em 0.2em 5em;
-    border-radius: 1em;
+    width: 50%;
+    height: 3em;
+    background: white;
+    border-radius: 2em;
         
-    input, input:focus {
-        border-style: none;
-        width: 100%;
-    }
+    .wrapper {
+        margin-left: 0.5em;
+        margin-right: 1.5em;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        overflow-x: hidden;
+        
+        img {
+            height: 100%;
+        }
+        
+        input {
+            flex: 1;  
+            height: 80%;      
+        }
+        
+        input, input:focus {
+            border-top: none;
+            border-right: none;
+            border-left: none;
+            outline: none;
+        }
+    }     
 }
