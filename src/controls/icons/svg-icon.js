@@ -6,10 +6,17 @@ import * as icons from './icons.json!json';
 export class SvgIcon {
     constructor(element) {
         this.element = element;
+        this.element.setAttribute("viewBox", "0 0 32 32");
     }
     
-    bind() {
-        console.log(icons);
-        alert(this.value);
+    bind() {     
+        const nameToSearchFor = this.value;  
+        let icon = icons.images.find((image) => {
+            return image.name === nameToSearchFor;
+        });
+        
+        if (icon) {
+            this.element.innerHTML = icon.data;
+        }
     }
 }
