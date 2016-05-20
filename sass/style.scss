@@ -1,8 +1,12 @@
 @import 'normalize';
+@import 'colors';
 
-$font-stack:    Helvetica, sans-serif;
-$primary-color: #FB0;
-$background-color: #FFE;
+@font-face {
+    font-family: "OpenSans";
+    src: url("./fonts/OpenSans-Regular.ttf");
+}
+
+$font-stack: "OpenSans";
 
 body {
   font: 100% $font-stack;
@@ -11,8 +15,8 @@ body {
 }
 
 header {
-  background: green;
-  height: 4em;
+  background: $primary-color;
+  height: 3em;
   text-align: center;
   
   search-input {
