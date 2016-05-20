@@ -1,4 +1,5 @@
 import {customAttribute, inject} from 'aurelia-framework';
+import * as icons from './icons.json!json';
 
 @customAttribute('icon')
 @inject(Element)
@@ -8,6 +9,7 @@ export class SvgIcon {
     }
     
     bind() {
+        console.log(icons);
         alert(this.value);
     }
 }
