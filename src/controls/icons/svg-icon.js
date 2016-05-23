@@ -6,7 +6,7 @@ import * as icons from './icons.json!json';
 export class SvgIcon {
     constructor(element) {
         this.element = element;
-        this.element.setAttribute("viewBox", "0 0 32 32");
+        this.element.setAttribute("viewBox", "0 0 128 128");
         this.element.setAttribute("preserveAspectRatio", "xMidYMid meet");
     }
     
