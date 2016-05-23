@@ -1,9 +1,22 @@
 <template>
     <require from='./../controls/search/searchInput'></require>
-    
-    <header>
-        <search-input></search-input>
+    <require from='./../controls/icons/svg-icon'></require>
+    <require from='./todo-template.html'></require>
+    <header>        
+        <search-input text.bind="searchText"></search-input>
+        
+        <div class="toolbar">
+            <button click.trigger="addClick()">
+                <svg icon="add"></svg>
+            </button>
+        </div>
     </header>
-    <section class="body">body</div>
+    <section class="body">
+        <ul class="todo-container">
+            <li repeat.for="item of items">
+                <todo-template item.bind="item"></todo-template>
+            </li>
+        </ul>        
+    </div>
     <footer>footer</footer>
 </template>

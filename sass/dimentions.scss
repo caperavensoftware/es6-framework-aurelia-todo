@@ -1,0 +1,8 @@
+// variables
+$header-item-height: 2em;
+$header-offset: 1em;
+$border-radius: 0.3em;
+
+// calculations
+$header-height: #{$header-item-height + $header-offset};
+$header-offset-margin: #{$header-offset / 2};

@@ -1,10 +1,9 @@
-<template>
+<template bindable="searchText">
     <require from="./searchInput.css"></require>
     <require from="./../icons/svg-icon"></require>   
 
     <div class="wrapper">
         <svg icon="search"></svg>        
-        <input type="text"></input>
-    </div>         
-    
+        <input type="text" value.bind="text"></input>
+    </div>
 </template>

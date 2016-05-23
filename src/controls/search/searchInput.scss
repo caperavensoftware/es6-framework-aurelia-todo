@@ -1,11 +1,11 @@
 @import './../../../sass/colors';
+@import './../../../sass/dimentions';
 
 search-input {
     display: inline-block;
     width: 50%;
-    height: 2em;
     background: white;
-    border-radius: 0.5em;
+    border-radius: $border-radius;
         
     .wrapper {
         margin-left: 0.5em;
@@ -32,5 +32,5 @@ search-input {
             border-left: none;
             outline: none;
         }
-    }     
+    }         
 }
