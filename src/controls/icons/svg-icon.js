@@ -7,6 +7,7 @@ export class SvgIcon {
     constructor(element) {
         this.element = element;
         this.element.setAttribute("viewBox", "0 0 32 32");
+        this.element.setAttribute("preserveAspectRatio", "xMidYMid meet");
     }
     
     bind() {     
@@ -20,3 +21,6 @@ export class SvgIcon {
         }
     }
 }
+
+
+
