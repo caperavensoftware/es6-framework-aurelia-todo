@@ -80,7 +80,6 @@ module.exports = function(file) {
            return;
        }
        
-console.log(file);     
        if (!concat) {
            concat = new SvgConcat();
        }
