@@ -5,6 +5,7 @@ export class Welcome {
     @bindable searchText;
     @bindable items;
     @bindable model;
+    @bindable disabled;
     
     constructor() {
         this.searchText = "";
@@ -23,6 +24,18 @@ export class Welcome {
     }
     
     searchTextChanged() {
+        if (this.searchText.trim().length === 0) {
+            if (this.backupItems !== null) {
+                this.items = this.backupItems;                
+            }
+            
+            this.disabled = false;
+            
+            return;
+        }
+        
+        this.disabled = true;
+        
         if (this.backupItems === null) {
             this.backupItems = this.items;
         }

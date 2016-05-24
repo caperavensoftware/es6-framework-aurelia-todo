@@ -6,18 +6,18 @@
         <search-input text.bind="searchText"></search-input>        
     </header>
     <section class="body">
-        <div class="inputGroup">
+        <div class="inputGroup" ref="inputGroup">
             <div>
                 <label for="edtTodo">Todo</label>
-                <input type="text" value.two-way="model.todo" ref="edtTodo"></input>
+                <input type="text" value.two-way="model.todo" ref="edtTodo" disabled.bind="disabled"></input>
             </div>
             
             <div>
                 <label for="edtDate">Date</label>
-                <input type="date" value.two-way="model.date"></input>
+                <input type="date" value.two-way="model.date" disabled.bind="disabled"></input>
             </div> 
             
-            <button click.trigger="addClick()">
+            <button click.trigger="addClick()" disabled.bind="disabled">
                 <svg icon="add"></svg>
             </button>           
         </div>
