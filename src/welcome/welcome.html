@@ -6,15 +6,15 @@
         <search-input text.bind="searchText"></search-input>        
     </header>
     <section class="body">
-        <div class="inputGroup" ref="inputGroup">
+        <div class="inputGroup" ref="inputGroup" validate.bind="validation">
             <div>
-                <label for="edtTodo">Todo</label>
+                <label for="edtTodo" ref="labelTodo">Todo</label>
                 <input type="text" value.two-way="model.todo" ref="edtTodo" disabled.bind="disabled"></input>
             </div>
             
             <div>
-                <label for="edtDate">Date</label>
-                <input type="date" value.two-way="model.date" disabled.bind="disabled"></input>
+                <label for="edtDate" ref="labelDate">Date</label>
+                <input type="date" value.two-way="model.date" disabled.bind="disabled" ref="edtDate"></input>
             </div> 
             
             <button click.trigger="addClick()" disabled.bind="disabled">

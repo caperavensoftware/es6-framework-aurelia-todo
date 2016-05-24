@@ -1,26 +1,37 @@
-import {bindable} from 'aurelia-framework';
+import {inject, bindable} from 'aurelia-framework';
 import TodoItem from './../models/todoItem';
 
+@inject(TodoItem)
 export class Welcome {
     @bindable searchText;
     @bindable items;
     @bindable model;
     @bindable disabled;
     
-    constructor() {
+    constructor(todoItem) {
         this.searchText = "";
         this.items = [];
         this.backupItems = null;
-        
-        this.model = new TodoItem();
+                
+        this.model = todoItem;           
     }
     
     addClick() {
+        if (this.edtTodo.value.length === 0) {
+            this.edtTodo.focus();
+            return;
+        }
+        
+        if (this.edtDate.value.length === 0) {
+            this.edtDate.focus();
+            return;
+        }
+
         let todoItem = new TodoItem(this.model.todo, this.model.date);
         this.items.push(todoItem);
                 
         this.model.todo = '';
-        this.edtTodo.focus();
+        this.edtTodo.focus();            
     }
     
     searchTextChanged() {
