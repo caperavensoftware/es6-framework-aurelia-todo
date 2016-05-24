@@ -4,17 +4,37 @@ import TodoItem from './../models/todoItem';
 export class Welcome {
     @bindable searchText;
     @bindable items;
+    @bindable model;
     
     constructor() {
-        this.searchText = "search value";
+        this.searchText = "";
         this.items = [];
+        this.backupItems = null;
         
-        this.items.push(new TodoItem("todo", new Date()));
-        this.items.push(new TodoItem("todo 2", new Date()));
-        this.items.push(new TodoItem("todo 3", new Date()));
+        this.model = new TodoItem();
     }
     
     addClick() {
-        alert('click');
+        let todoItem = new TodoItem(this.model.todo, this.model.date);
+        this.items.push(todoItem);
+                
+        this.model.todo = '';
+        this.edtTodo.focus();
+    }
+    
+    searchTextChanged() {
+        if (this.backupItems === null) {
+            this.backupItems = this.items;
+        }
+        
+        let result = this.backupItems.filter(todoItem => {
+            return this.hasFilterString(todoItem.todo) || this.hasFilterString(todoItem.date);
+        });
+        
+        this.items = result;
+    }
+    
+    hasFilterString(value) {
+        return value && value.toLowerCase().indexOf(this.searchText.toLowerCase()) > -1;
     }
 }

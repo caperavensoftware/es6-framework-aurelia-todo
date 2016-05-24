@@ -9,20 +9,19 @@
         <div class="inputGroup">
             <div>
                 <label for="edtTodo">Todo</label>
-                <input type="text"></input>
+                <input type="text" value.two-way="model.todo" ref="edtTodo"></input>
             </div>
             
             <div>
                 <label for="edtDate">Date</label>
-                <input type="date"></input>
+                <input type="date" value.two-way="model.date"></input>
             </div> 
             
             <button click.trigger="addClick()">
                 <svg icon="add"></svg>
-            </button>
-           
+            </button>           
         </div>
-
+        
         <ul class="todo-container">
             <li repeat.for="item of items">
                 <todo-template item.bind="item"></todo-template>
