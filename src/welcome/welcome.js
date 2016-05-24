@@ -1,29 +1,32 @@
 import {inject, bindable} from 'aurelia-framework';
 import TodoItem from './../models/todoItem';
+import Ping from './../controls/ping/ping';
 
-@inject(TodoItem)
+@inject(TodoItem, Ping)
 export class Welcome {
     @bindable searchText;
     @bindable items;
     @bindable model;
     @bindable disabled;
     
-    constructor(todoItem) {
+    constructor(todoItem, ping) {
         this.searchText = "";
         this.items = [];
         this.backupItems = null;
-                
+        this.ping = ping;        
         this.model = todoItem;           
     }
     
     addClick() {
         if (this.edtTodo.value.length === 0) {
             this.edtTodo.focus();
+            this.ping.pingControl(this.edtTodo);
             return;
         }
         
         if (this.edtDate.value.length === 0) {
             this.edtDate.focus();
+            this.ping.pingControl(this.edtDate);
             return;
         }
 
