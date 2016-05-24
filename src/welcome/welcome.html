@@ -3,20 +3,30 @@
     <require from='./../controls/icons/svg-icon'></require>
     <require from='./todo-template.html'></require>
     <header>        
-        <search-input text.bind="searchText"></search-input>
-        
-        <div class="toolbar">
+        <search-input text.bind="searchText"></search-input>        
+    </header>
+    <section class="body">
+        <div class="inputGroup">
+            <div>
+                <label for="edtTodo">Todo</label>
+                <input type="text"></input>
+            </div>
+            
+            <div>
+                <label for="edtDate">Date</label>
+                <input type="date"></input>
+            </div> 
+            
             <button click.trigger="addClick()">
                 <svg icon="add"></svg>
             </button>
+           
         </div>
-    </header>
-    <section class="body">
+
         <ul class="todo-container">
             <li repeat.for="item of items">
                 <todo-template item.bind="item"></todo-template>
             </li>
         </ul>        
     </div>
-    <footer>footer</footer>
 </template>

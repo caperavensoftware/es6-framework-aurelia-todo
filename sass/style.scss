@@ -31,25 +31,47 @@ header {
     margin-left: 1em;
     margin-top: $header-offset-margin;
     height: $header-item-height;
+    }
+}
+
+.inputGroup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 1em;
+    padding: 1em;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.25); 
+ 
+    div
+    {
+      margin-right: 1em;
+      
+      label {
+        display: block;
+      }       
+    } 
     
     button {
-      background: $button-color;
-      height: 2.5em;
-      width: 2.5em;
-      border: none;
-      border-radius: 50%;
-      margin-top: 1.2em;   
-      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
-      transition: all .1s ease-in-out;
-         
-      svg {
-        fill: $button-icon-color;        
-      }
+      margin-top: 1.5em;
     }
-    
-    button:hover {
-      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.50);   
-      transform: scale(1.1); 
-    }
+}
+
+button {
+  background: $button-color;
+  height: 2.5em;
+  width: 2.5em;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+  transition: all .1s ease-in-out;
+      
+  svg {
+    fill: $button-icon-color;        
   }
+}
+
+button:hover {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.50);   
+  transform: scale(1.1); 
 }
