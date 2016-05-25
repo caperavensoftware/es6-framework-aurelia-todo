@@ -1,6 +1,7 @@
 import {inject, bindable} from 'aurelia-framework';
 import TodoItem from './../models/todoItem';
 import Ping from './../controls/ping/ping';
+import 'TweenMax';
 
 @inject(TodoItem, Ping)
 export class Welcome {
@@ -17,9 +18,7 @@ export class Welcome {
         this.model = todoItem;           
     }
     
-    addClick() {
-        this.ping.pingControl(this.btnAdd, "blue");
-        
+    addClick() {       
         if (this.edtTodo.value.length === 0) {
             this.edtTodo.focus();
             this.ping.pingControl(this.edtTodo);
@@ -31,6 +30,8 @@ export class Welcome {
             this.ping.pingControl(this.edtDate);
             return;
         }
+        
+        this.ping.pingControl(this.btnAdd, {color: "white"});        
 
         let todoItem = new TodoItem(this.model.todo, this.model.date);
         this.items.push(todoItem);

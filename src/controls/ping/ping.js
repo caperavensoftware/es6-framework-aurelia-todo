@@ -7,14 +7,14 @@
 import 'TweenMax';
 
 export default class Ping {
-    pingControl(element, color="red") {
+    pingControl(element, options) {
         let rect = element.getBoundingClientRect();
         
         if (!this.pingContainer) {
             this.pingContainer = new PingContainer();            
         }
-        
-        this.pingContainer.play(rect, color).then(() => {
+                
+        this.pingContainer.play(rect, options).then(() => {
            this.pingContainer.destroy();
         });
     }
@@ -43,6 +43,7 @@ class PingContainer {
                 
                 this.parent.style.top = rect.top;
                 this.parent.style.left = rect.left;
+                this.parent.style.zIndex = 100000;
                 this.parent.setAttributeNS(null, 'width', `${parentWidth}px`);
                 this.parent.setAttributeNS(null, 'height', `${parentHeight}px`);
                 
@@ -71,11 +72,24 @@ class PingContainer {
         this.parent.appendChild(this.circle);        
     }
         
-    play(rect, color) {
+    play(rect, options) {
         if (this.tween && window.TweenMax.isTweening()) {
             window.TweenMax.killAll();
             this.tween = null;
         }
+        
+        let color = "red";
+        let easeFunction = Bounce.easeOut;
+        
+        if (options) {
+            if (options.color) {
+                color = options.color;                
+            }
+            
+            if (options.ease) {
+                easeFunction = options.ease;
+            }
+        }        
                 
         return new Promise(function(resolve) {            
             this.setLocation(rect, color).then(() => {
@@ -84,10 +98,11 @@ class PingContainer {
                         opacity: 0,
                         r: this.animationRadius
                     },
+                    ease: easeFunction,
                     onComplete: resolve
                 };
                 
-                this.tween = window.TweenMax.to(this.circle, 0.5, animationDetails);
+                this.tween = window.TweenMax.to(this.circle, 1, animationDetails);
             });
         }.bind(this));        
     }
