@@ -72,8 +72,8 @@ class PingContainer {
     }
         
     play(rect, color) {
-        if (this.tween) {
-            this.tween.stop();
+        if (this.tween && window.TweenMax.isTweening()) {
+            window.TweenMax.killAll();
             this.tween = null;
         }
                 
@@ -87,7 +87,7 @@ class PingContainer {
                     onComplete: resolve
                 };
                 
-                this.tween = window.TweenMax.to(this.circle, 0.5, animationDetails);                
+                this.tween = window.TweenMax.to(this.circle, 0.5, animationDetails);
             });
         }.bind(this));        
     }
