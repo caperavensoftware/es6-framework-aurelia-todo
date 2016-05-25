@@ -18,6 +18,8 @@ export class Welcome {
     }
     
     addClick() {
+        this.ping.pingControl(this.btnAdd, "blue");
+        
         if (this.edtTodo.value.length === 0) {
             this.edtTodo.focus();
             this.ping.pingControl(this.edtTodo);

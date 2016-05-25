@@ -16,8 +16,14 @@ let sourceContainer = null;
 let testContainer = null;
 
 function testUnit(path) {
+    let mochaOptions = {
+      bail: true,
+      ignoreLeaks: false,
+      fullTrace: true
+    };
+  
     return gulp.src(path)
-    .pipe(mocha());
+    .pipe(mocha(mochaOptions));
 }
 
 function coverageUnit(done) {

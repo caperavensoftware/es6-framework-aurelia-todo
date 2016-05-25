@@ -13,10 +13,11 @@ System.config({
   paths: {
     "*": "app/*.js",
     "github:*": "jspm_packages/github/*",
-    "npm:*": "jspm_packages/npm/*"
+    "npm:*": "jspm_packages/npm/*",
+    "lib:*": "library/*"
   },
 
-  map: {
+  map: {   
     "aurelia-animator-css": "npm:aurelia-animator-css@1.0.0-beta.1.2.1",
     "aurelia-binding": "npm:aurelia-binding@1.0.0-beta.1.3.6",
     "aurelia-bootstrapper": "npm:aurelia-bootstrapper@1.0.0-beta.1.2.1",
