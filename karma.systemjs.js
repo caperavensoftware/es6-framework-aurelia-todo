@@ -209,6 +209,6 @@ System.config({
     },    
         
     "chai": "node_modules/chai/chai.js",
-    "sinon": "node_modules/sinon/pkg/sinon.js"
+    "sinon": "node_modules/sinon/pkg/sinon.js"   
   }
 });

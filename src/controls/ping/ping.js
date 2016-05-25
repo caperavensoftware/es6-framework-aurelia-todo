@@ -4,7 +4,7 @@
     The next time ping is used, it will not cost dom time because it is already in the dom, it will just use the existing dom for the new location
 */
 
-import './../../../library/greensock/TweenMax.min';
+import 'TweenMax';
 
 export default class Ping {
     pingControl(element, color="red") {

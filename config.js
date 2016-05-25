@@ -245,6 +245,8 @@ System.config({
     },
     "npm:validate.js@0.9.0": {
       "process": "github:jspm/nodelibs-process@0.1.2"
-    }
+    },
+    
+    "TweenMax": "lib:greensock/TweenMax.min",
   }
 });
