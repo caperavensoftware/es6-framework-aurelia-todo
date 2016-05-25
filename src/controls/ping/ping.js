@@ -78,8 +78,8 @@ class PingContainer {
             this.tween = null;
         }
         
-        let color = "red";
-        let easeFunction = Bounce.easeOut;
+        let color = "#1fbcd2";
+        let easeFunction = Power4.easeOut;
         
         if (options) {
             if (options.color) {
