@@ -2,7 +2,7 @@ export default class TodoItem {
     constructor(todo, date) {
         this.todo = todo || '';
         this.date = date || '';
-        this.isDone = false;
-        this.isSelected = false;
+        this.isDone = true;
+        this.isSelected = true;
     }
 }

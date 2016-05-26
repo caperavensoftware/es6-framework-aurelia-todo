@@ -34,8 +34,12 @@ export class Checkbox {
             .to(this.uncheckedImage, 0.2, {morphSVG:this.betweenImage, opacity: 1})
             .to(this.uncheckedImage, 0.2, {morphSVG:this.checkedImage, ease: Power4.easeOut})
             .pause();
+            
+        if (this.checked) {
+            this.timeline.progress(1);
+        }            
     }
-    
+        
     iconToPath(icon) {
         if (!icon || icon.data.substring(0, 5) !== '<path') {
             throw "Checkbox.iconToPath expects a path object";
