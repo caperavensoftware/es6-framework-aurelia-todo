@@ -1,4 +1,4 @@
-import {customElement, useShadowDOM, inject, bindable} from 'aurelia-framework';
+import {customElement, useShadowDOM, inject, bindable, bindingMode} from 'aurelia-framework';
 import {SvgStore} from './../icons/svg-store';
 import 'TimelineLite';
 import 'MorphSvg';
@@ -7,7 +7,7 @@ import 'MorphSvg';
 @useShadowDOM()
 @inject(Element, SvgStore)
 export class Checkbox {
-    @bindable isChecked;
+    @bindable({defaultBindingMode: bindingMode.twoWay}) checked;
     
     constructor(element, svgStore) {
         this.element = element;
@@ -52,8 +52,12 @@ export class Checkbox {
         this.timeline = null;
     }
     
-    isCheckedChanged() {
-        if (this.isChecked) {
+    checkedChanged() {
+        if (!this.timeline) {
+            return; // ui not initialized yet but bindings are firing off
+        }
+        
+        if (this.checked) {
             this.timeline.play();
         }
         else {

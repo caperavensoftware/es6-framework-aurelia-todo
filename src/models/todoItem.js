@@ -3,5 +3,6 @@ export default class TodoItem {
         this.todo = todo || '';
         this.date = date || '';
         this.isDone = false;
+        this.isSelected = false;
     }
 }

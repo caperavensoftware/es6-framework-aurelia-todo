@@ -2,10 +2,10 @@
     <require from='./../controls/switch/switch'></require>
     <require from='./../controls/checkbox/checkbox'></require>
     
-    <checkbox></checkbox>
+    <checkbox checked.bind="item.isSelected"></checkbox>
     <section id="content">
         <div id="todo">${item.todo}</div>    
         <div id="date">${item.date}</div>
     </section>    
-    <switch></switch>
+    <switch checked.bind="item.isDone"></switch>
 </template>
