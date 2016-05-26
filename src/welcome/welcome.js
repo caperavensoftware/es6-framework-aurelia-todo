@@ -35,6 +35,7 @@ export class Welcome {
         this.ping.pingControl(this.btnAdd, {color: "white"});        
 
         let todoItem = new TodoItem(this.model.todo, this.model.date);
+        todoItem.isSelected = this.allSelected;
         this.items.push(todoItem);
                 
         this.model.todo = '';
@@ -42,11 +43,35 @@ export class Welcome {
     }
     
     completeSelected() {
-        alert('complete');
+        let selectedItems = this.getSelectedItems();
+        
+        for(let item of selectedItems) {
+            if (item.isSelected) {
+                item.isDone = true;                
+            }
+        }
+        
+        this.allSelected = false;
     }
     
     deleteSelected() {
-        alert('delete');
+        let selectedItems = this.getSelectedItems();
+        
+        for(let todoItem of selectedItems) {
+            let index = this.items.indexOf(todoItem);
+            
+            if (index !== -1) {
+                this.items.splice(index, 1);     
+            }                                    
+        }
+        
+        this.allSelected = false;
+    }
+    
+    getSelectedItems() {
+        return this.items.filter(todoItem => {
+           return todoItem.isSelected; 
+        });
     }
     
     searchTextChanged() {
