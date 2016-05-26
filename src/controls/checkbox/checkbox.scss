@@ -1,4 +1,11 @@
+@import './../../../sass/colors.scss';
+
 .checkboxImage {
-    width: 2rem;
-    height: 2rem;
+    width: 1.25rem;
+    height: 1.25rem;   
+    fill: $button-color;
+}
+
+#checkedon {
+    visibility: hidden;
 }
