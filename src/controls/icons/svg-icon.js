@@ -1,25 +1,23 @@
 import {customAttribute, inject} from 'aurelia-framework';
-import * as icons from './icons.json!json';
+import {SvgStore} from './svg-store';
 
 @customAttribute('icon')
-@inject(Element)
+@inject(Element, SvgStore)
 export class SvgIcon {
-    constructor(element) {
+    constructor(element, svgStore) {
+        this.store = svgStore;
         this.element = element;
         this.element.setAttribute("viewBox", "0 0 128 128");
         this.element.setAttribute("preserveAspectRatio", "xMidYMid meet");
     }
     
     bind() {     
-        const nameToSearchFor = this.value;  
-        let icon = icons.images.find((image) => {
-            return image.name === nameToSearchFor;
-        });
+        let icon = this.store.findItemByName(this.value);
         
         if (icon) {
             this.element.innerHTML = icon.data;
-        }
-    }
+        }        
+    }        
 }
 
 
