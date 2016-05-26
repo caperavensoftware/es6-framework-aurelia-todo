@@ -6,3 +6,6 @@ $border-radius: 0.3em;
 // calculations
 $header-height: #{$header-item-height + $header-offset};
 $header-offset-margin: #{$header-offset / 2};
+
+$todo-container-width: 50%;
+$todo-container-left: #{ (100 - $todo-container-width) / 2};

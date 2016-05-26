@@ -9,13 +9,14 @@ export class Welcome {
     @bindable items;
     @bindable model;
     @bindable disabled;
+    @bindable allSelected;
     
     constructor(todoItem, ping) {
         this.searchText = "";
         this.items = [];
         this.backupItems = null;
         this.ping = ping;        
-        this.model = todoItem;           
+        this.model = todoItem;     
     }
     
     addClick() {       
@@ -40,6 +41,14 @@ export class Welcome {
         this.edtTodo.focus();            
     }
     
+    completeSelected() {
+        alert('complete');
+    }
+    
+    deleteSelected() {
+        alert('delete');
+    }
+    
     searchTextChanged() {
         if (this.searchText.trim().length === 0) {
             if (this.backupItems !== null) {
@@ -62,6 +71,12 @@ export class Welcome {
         });
         
         this.items = result;
+    }
+    
+    allSelectedChanged() {
+        for(let item of this.items) {
+            item.isSelected = this.allSelected;
+        }
     }
     
     hasFilterString(value) {

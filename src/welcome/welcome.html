@@ -2,6 +2,8 @@
     <require from='./../controls/search/searchInput'></require>
     <require from='./../controls/icons/svg-icon'></require>
     <require from='./todo-template.html'></require>
+    <require from='./../controls/checkbox/checkbox'></require>
+    
     <header>        
         <search-input text.bind="searchText"></search-input>        
     </header>
@@ -17,9 +19,17 @@
                 <input type="date" value.two-way="model.date" disabled.bind="disabled" ref="edtDate"></input>
             </div> 
             
-            <button click.trigger="addClick()" disabled.bind="disabled" ref="btnAdd">
+            <button click.trigger="addClick()" disabled.bind="disabled" ref="btnAdd" class="addbutton">
                 <svg icon="add"></svg>
             </button>           
+        </div>
+        <div class="toolbarGroup">
+            <div>
+                <label for="chbSelectAll">Select All</label>
+                <checkbox checked.bind="allSelected" id="chbSelectAll"></checkbox>
+                <button click.trigger="completeSelected()">Complete</button>
+                <button class="alert" click.trigger="deleteSelected()">Delete</button>
+            </div>            
         </div>
         
         <ul class="todo-container">

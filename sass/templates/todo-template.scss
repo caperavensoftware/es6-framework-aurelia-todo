@@ -1,8 +1,7 @@
 @import './../dimentions';
 @import './../colors';
 
-$todo-container-width: 50%;
-$todo-container-left: #{ (100 - $todo-container-width) / 2};
+
 
 .todo-container {
     padding: 0;

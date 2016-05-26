@@ -40,8 +40,7 @@ header {
     align-items: center;
     position: relative;
     margin-bottom: 1em;
-    padding: 1em;
-    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.25); 
+    padding: 1em;     
  
     div
     {
@@ -57,13 +56,39 @@ header {
     }
 }
 
-button {
+.toolbarGroup {
+    background: $primary-color;
+    height: 3rem;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    
+    div {
+      height: 2em;
+      background: white;
+      width: $todo-container-width;
+      margin-left: $todo-container-left;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      position: relative;  
+      border-radius: $border-radius;
+      
+      label {
+        color:$primary-color;
+        margin-right: 1em;
+        margin-left: 1em;
+      }      
+    }
+}
+
+.addbutton {
   background: $button-color;
   height: 2.5em;
   width: 2.5em;
   border: none;
   border-radius: 50%;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 10px 0px rgba(0, 189, 171, 0.25);
   transition: all .1s ease-in-out;
       
   svg {
@@ -71,12 +96,26 @@ button {
   }
 }
 
+button {
+  width: 6rem;
+  margin-left: 1em;
+  background: $button-color;
+  color: white;
+  border: none;
+  transition: all .1s ease-in-out;
+  cursor: hand;
+}
+
+.alert {
+  background: $alert-color;
+}
+
 button[disabled] {
   background: $disabled-color;
 }
 
 button:hover {
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.50);   
+  box-shadow: 0px 0px 10px 0px rgba(0, 189, 171, 0.25);   
   transform: scale(1.1); 
 }
 
