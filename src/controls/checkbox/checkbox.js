@@ -1,6 +1,7 @@
 import {customElement, useShadowDOM, inject, bindable} from 'aurelia-framework';
 import {SvgStore} from './../icons/svg-store';
-import 'TweenMax';
+import 'TimelineLite';
+import 'MorphSvg';
 
 @customElement('checkbox')
 @useShadowDOM()
@@ -14,15 +15,33 @@ export class Checkbox {
     }
     
     attached() {
-        let checkedSvg = this.store.findItemByName("checkedon");     
-        let uncheckedSvg = this.store.findItemByName("checkedoff");
+        const betweenSvg = this.store.findItemByName("checked-off-on");
+        const checkedSvg = this.store.findItemByName("checkedon");     
+        const uncheckedSvg = this.store.findItemByName("checkedoff");        
+
+        const betweenSvgString = this.iconToPath(betweenSvg);
+        const checkedSvgString = this.iconToPath(checkedSvg);
+        const uncheckedSvgString = this.iconToPath(uncheckedSvg);
         
-        const checkedSvgString = `<g id="${checkedSvg.name}">${checkedSvg.data}</g>`;
-        const uncheckedSvgString = `<g id="${uncheckedSvg.name}">${uncheckedSvg.data}</g>`;
+        this.svgCheckbox.innerHTML = `${uncheckedSvgString} ${betweenSvgString} ${checkedSvgString}`;
         
-        this.svgCheckbox.innerHTML = `${uncheckedSvgString} ${checkedSvgString}`;
         this.checkedImage = this.svgCheckbox.getElementById(checkedSvg.name);
+        this.betweenImage = this.svgCheckbox.getElementById(betweenSvg.name);
         this.uncheckedImage = this.svgCheckbox.getElementById(uncheckedSvg.name);
+        
+        this.timeline = new window.TimelineLite();
+        this.timeline
+            .to(this.uncheckedImage, 0.2, {morphSVG:this.betweenImage, opacity: 1})
+            .to(this.uncheckedImage, 0.2, {morphSVG:this.checkedImage, ease: Power4.easeOut})
+            .pause();
+    }
+    
+    iconToPath(icon) {
+        if (!icon || icon.data.substring(0, 5) !== '<path') {
+            throw "Checkbox.iconToPath expects a path object";
+        }
+                
+        return `${icon.data.slice(0,5)} id="${icon.name}" ${icon.data.slice(6)}`;
     }
     
     detached() {
@@ -30,14 +49,15 @@ export class Checkbox {
         this.uncheckedImage = null;
         this.store = null;
         this.element = null;
+        this.timeline = null;
     }
     
     isCheckedChanged() {
-        console.log(this.isChecked);
-        console.log(this.checkedImage);
-        console.log(this.uncheckedImage);      
-//        window.TweenMax.to(this.svgCheckbox, 1, )
-//         var endShape = document.getElementById("hippo");
-// TweenLite.to("#circle", 1, {morphSVG:endShape});
+        if (this.isChecked) {
+            this.timeline.play();
+        }
+        else {
+            this.timeline.reverse();
+        }
     }
 }

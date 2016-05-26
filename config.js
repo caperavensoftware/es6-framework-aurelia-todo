@@ -248,5 +248,8 @@ System.config({
     },
     
     "TweenMax": "lib:greensock/TweenMax.min",
+    "TweenLite": "lib:greensock/TweenLite.min",
+    "TimelineLite": "lib:greensock/TimelineLite.min",
+    "MorphSvg": "lib:greensock/plugins/MorphSVGPlugin.min"
   }
 });
