@@ -23,7 +23,7 @@
         </div>
         
         <ul class="todo-container">
-            <li repeat.for="item of items">
+            <li repeat.for="item of items" class.bind="item.isDone ? 'suppressed' : ''">
                 <todo-template item.bind="item"></todo-template>
             </li>
         </ul>        

@@ -90,3 +90,7 @@ input, input:focus {
     border-left: none;
     outline: none;
 }
+
+.suppressed {
+    opacity: 0.5;
+}
